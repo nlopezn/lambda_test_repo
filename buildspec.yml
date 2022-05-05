@@ -15,7 +15,8 @@ phases:
 #       - cd lib
 #       - zip -r9 ../deployment_package.zip .
 #       - cd ..
-      - zip deployment_package.zip lambda_function.py
+      - zip deployment_package.zip test-lambda.py
+      - ls 
   post_build:
     commands:
       - echo "Updating lambda Function..."
