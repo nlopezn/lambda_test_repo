@@ -7,11 +7,15 @@ phases:
       - echo "Installing dependencies...but no dependencies"
   build:
     commands:
-      - echo "Zipping deployment package...but nothing to zip"
+      - echo "Zipping deployment package ..."
+      - echo "current dir..."
+      - pwd
+      - echo "display contents of current directory"
+      - ls 
 #       - cd lib
 #       - zip -r9 ../deployment_package.zip .
 #       - cd ..
-      - zip -g deployment_package.zip lambda_function.py
+      - zip deployment_package.zip lambda_function.py
   post_build:
     commands:
       - echo "Updating lambda Function..."
