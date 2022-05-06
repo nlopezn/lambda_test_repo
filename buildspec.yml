@@ -4,8 +4,7 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - echo "Function name = "
-      - echo $FUNCTION_NAME
+      - echo "Function name = $FUNCTION_NAME"
       - echo "Installing dependencies...but no dependencies"
   build:
     commands:
@@ -17,10 +16,10 @@ phases:
 #       - cd lib
 #       - zip -r9 ../deployment_package.zip .
 #       - cd ..
-      - zip deployment_package.zip test-lambda.py
+      - zip deployment_package.zip $FUNCTION_NAME.py
       - ls 
   post_build:
     commands:
       - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name test-lambda --zip-file fileb://deployment_package.zip
+      - aws lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://deployment_package.zip
       - echo "DONE!!"
