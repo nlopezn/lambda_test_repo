@@ -4,7 +4,8 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - env
+      - echo "Function name = "
+      - echo $FUNCTION_NAME
       - echo "Installing dependencies...but no dependencies"
   build:
     commands:
