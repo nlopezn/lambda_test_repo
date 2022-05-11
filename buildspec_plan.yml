@@ -14,8 +14,9 @@ phases:
   build:
     commands:
         - pwd
-        - ls 
         - cd /
+        - pwd 
+        - ls
         - cd $SRC_DIR/
         - ls
         - chmod u+x build_plan.sh
