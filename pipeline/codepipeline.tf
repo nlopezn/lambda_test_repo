@@ -1,10 +1,10 @@
 # Pipeline Creation 
 
 # Please adjust the Profile variable according to your AWS CLI configuration
-provider "aws" {
-  region = var.region
-  profile = var.profile
-}
+# provider "aws" {
+#   region = var.region
+#   profile = var.profile
+# }
 
 resource "aws_codepipeline" "codepipeline" {
   
