@@ -20,14 +20,16 @@ environment                                                 = "dev"
 profile                                                     = "dev"
 
 codepipeline_bucket                                         = "rave-dev-pipeline-artifacts"
-repository_name                                             = "rave-terraform-dev"
-tf_version                                                  = "4.3.0"
+repository_name                                             = "nlopezn/lambda_test_repo"
+repository_branch_name                                      = "main"
+tf_version                                                  = "1.1.9"
 codebuild_project_name_plan                                 = "terraform-plan-codebuild"
 codebuild_project_name_apply                                = "terraform-apply-codebuild"
 
-github_acc_token                                            = "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"
+buildspec_plan_yml                                          = "buildspec_plan.yml"
+buildspec_apply_yml                                         = "buildspec_apply.yml"
+
 source_provider                                             = "GITHUB"
-authorization_type                                          = "PERSONAL_ACCESS_TOKEN"
 codebuild_src_dir                                           = "pipeline"
 
-emails_list                                                 = ["nicolas.lopezvaldez@rackspace.com"]
+emails_list
