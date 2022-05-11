@@ -2,10 +2,10 @@
 resource "aws_iam_role" "codebuild-role" {
   name = "codebuild-role"
 
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
+  assume_role_policy = jsonencode({
+
+    "Version": "2012-10-17",
+    "Statement": [
     {
       "Effect": "Allow",
       "Principal": {
@@ -13,9 +13,8 @@ resource "aws_iam_role" "codebuild-role" {
       },
       "Action": "sts:AssumeRole"
     }
-  ]
-}
-EOF
+    ]
+  })
 }
 
 resource "aws_iam_role_policy" "codebuild-role-policy" {
@@ -78,7 +77,7 @@ resource "aws_codebuild_project" "terraform_plan_codebuild" {
 
   logs_config {
     cloudwatch_logs {
-      group_name  = "${var.org_identifier}-${var.environment}-codebuild-logs"
+      group_name  = "${var.org_identifier}-${var.environment}-pipeline-plan"
     }
   }
 
@@ -117,12 +116,21 @@ resource "aws_codebuild_project" "terraform_apply_codebuild" {
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
 
+    environment_variable {
+      name  = "SRC_DIR"
+      value = var.codebuild_src_dir
+    }
+
+    environment_variable {
+        name  = "TF_VERSION"
+        value = var.tf_version
+    }
+
   }
 
   logs_config {
     cloudwatch_logs {
-      group_name  = "log-group"
-      stream_name = "log-stream"
+      group_name  = "${var.org_identifier}-${var.environment}-pipeline-apply"
     }
   }
 
@@ -130,10 +138,10 @@ resource "aws_codebuild_project" "terraform_apply_codebuild" {
 
   source {
     type            = "CODEPIPELINE"
-    buildspec       = var.buildspec_plan_yml
+    buildspec       = var.buildspec_apply_yml
     git_clone_depth = 0
   }
-  
+
   tags = {
     name                = "${var.org_identifier}-${var.environment}-codebuild"
   }
