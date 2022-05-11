@@ -3,7 +3,7 @@
 ## change to the working directory
 pwd
 ls
-cd pipeline/
+cd pipeline
 
 ## Performing Terrafom init
 
