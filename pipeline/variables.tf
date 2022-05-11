@@ -25,15 +25,7 @@ variable "creator" {
 }
 
 # 1. github
-variable "github_acc_token" {
-  type = string
-}
-
 variable "source_provider" {
-  type = string
-}
-
-variable "authorization_type" {
   type = string
 }
 
