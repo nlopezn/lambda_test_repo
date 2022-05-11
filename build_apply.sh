@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## change to the working directory
-#cd pipeline/
+cd pipeline/
 
 ## Performing Terrafom init
 echo "=========================================================="
