@@ -16,8 +16,6 @@ phases:
         - cd $CODEBUILD_SRC_DIR
         - pwd
         - ls
-        - cd $SRC_DIR/
-        - ls
         - chmod u+x build_plan.sh
         - ./build_plan.sh
         - if [ $? -ne 0 ]; then exit 1; fi
