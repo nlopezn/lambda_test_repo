@@ -36,7 +36,8 @@ echo ""
 echo "=========================================================="
 echo ">> TERRAFORM APPLY"
 echo "=========================================================="
-terraform apply -input=false -auto-approve TerraformPlanOutput.json
+# terraform apply -input=false -auto-approve TerraformPlanOutput.json
+echo SKPPING FOR NOW, JUST TESTING IT OUT
 if [ $? -ne 0 ]; then
     echo ">>> TERRAFORM APPLY failed. Abort execution <<<"
     exit 1
