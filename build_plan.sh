@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ## change to the working directory
+pwd
+ls
 cd pipeline/
 
 ## Performing Terrafom init
