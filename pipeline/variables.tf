@@ -50,7 +50,7 @@ variable "emails_list" {
 
 # AWS CLI Profile name
 variable "profile" {
-  type = list
+  type = string
   default = "dev"
 }
 
