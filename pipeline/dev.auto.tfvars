@@ -32,4 +32,4 @@ buildspec_apply_yml                                         = "buildspec_apply.y
 source_provider                                             = "GITHUB"
 codebuild_src_dir                                           = "pipeline"
 
-emails_list
+emails_list                                                 = ["nicolas.lopezvaldez@rackspace.com"]
