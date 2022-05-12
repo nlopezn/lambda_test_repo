@@ -1,11 +1,8 @@
 #!/bin/bash
 
 ## change to the working directory
-pwd
-ls
 cd pipeline
 echo pwd
-echo contents
 ls
 
 ## Performing Terrafom init
